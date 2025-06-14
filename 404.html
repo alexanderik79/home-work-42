@@ -10,10 +10,12 @@
       path = path.replace(/^\/home-work-42/, '') || '/';
       const search = window.location.search;
       const hash = window.location.hash;
+      // Сохраняем маршрут в query-параметре
+      const redirectUrl = '/home-work-42/index.html?redirect=' + encodeURIComponent(path + search + hash);
       // Обновляем URL в браузере
       history.replaceState(null, '', '/home-work-42' + path + search + hash);
-      // Загружаем index.html
-      window.location.replace('/home-work-42/index.html' + search + hash);
+      // Перенаправляем на index.html с параметром
+      window.location.replace(redirectUrl);
     </script>
   </head>
   <body>
