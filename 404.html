@@ -7,15 +7,13 @@
       // Получаем текущий путь
       let path = window.location.pathname;
       // Убираем /home-work-42 из начала пути
-      path = path.replace(/^\/home-work-42/, '');
-      // Если путь пустой, устанавливаем /
-      if (path === '') path = '/';
+      path = path.replace(/^\/home-work-42/, '') || '/';
       const search = window.location.search;
       const hash = window.location.hash;
       // Обновляем URL в браузере
       history.replaceState(null, '', '/home-work-42' + path + search + hash);
-      // Перенаправляем на index.html
-      window.location.replace('/home-work-42/index.html');
+      // Загружаем index.html
+      window.location.replace('/home-work-42/index.html' + search + hash);
     </script>
   </head>
   <body>
