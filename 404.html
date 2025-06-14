@@ -4,12 +4,19 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      // Перенаправляем, сохраняя путь
-      const path = window.location.pathname.replace(/^\/home-work-42/, '');
+      // Исправляем путь, убирая /home-work-42 если он уже есть
+      let path = window.location.pathname;
+      if (path.startsWith('/home-work-42/home-work-42')) {
+        path = path.replace('/home-work-42/home-work-42', '/home-work-42');
+      } else if (!path.startsWith('/home-work-42')) {
+        path = '/home-work-42' + path;
+      }
       const search = window.location.search;
       const hash = window.location.hash;
-      history.replaceState(null, '', '/home-work-42' + path + search + hash);
-      window.location.href = '/home-work-42/index.html';
+      // Обновляем URL в браузере
+      history.replaceState(null, '', path + search + hash);
+      // Перенаправляем на index.html
+      window.location.replace('/home-work-42/index.html');
     </script>
   </head>
   <body>
