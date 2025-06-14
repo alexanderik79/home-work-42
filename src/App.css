@@ -71,3 +71,41 @@ width: 100%;
 min-height: auto;
 }
 }
+
+.car-detail {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.car-detail a {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+.car-detail a:hover {
+  color: #ffd700;
+}
+.car-photos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.car-photos img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 4px;
+}
+.car-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  text-decoration: none;
+  color: #333;
+  transition: box-shadow 0.2s;
+}
+.car-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

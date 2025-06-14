@@ -1,0 +1,286 @@
+/* General Page Styling */
+.home-page {
+  font-family: 'Arial', sans-serif; /* Consistent font */
+  color: #333;
+  line-height: 1.6;
+}
+
+.home-page section {
+  padding: 40px 20px; /* Consistent padding for sections */
+  max-width: 1200px; /* Max width for content */
+  margin: 0 auto; /* Center sections */
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8; /* Light background for hero */
+  padding: 60px 20px;
+  text-align: center;
+  gap: 30px; /* Space between content and image */
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-section h1 {
+  font-size: 3.5em; /* Larger heading */
+  color: #222;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero-section p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1em;
+}
+
+.primary-btn {
+  background-color: #333;
+  color: white;
+  border: 1px solid #333;
+}
+
+.primary-btn:hover {
+  background-color: #ffd700;
+  color: #333;
+  border-color: #ffd700;
+}
+
+.secondary-btn {
+  background-color: white;
+  color: #333;
+  border: 1px solid #333;
+}
+
+.secondary-btn:hover {
+  background-color: #333;
+  color: white;
+}
+
+/* --- Services Overview Section --- */
+.services-overview {
+  background-color: #fff;
+  text-align: center;
+}
+
+.services-overview h2 {
+  font-size: 2.5em;
+  color: #222;
+  margin-bottom: 40px;
+}
+
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background-color: #f8f8f8;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Cover the area, crop if necessary */
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.card-link {
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.card-link:hover {
+  color: #ffd700;
+  border-color: #ffd700;
+}
+
+/* --- Dealership Highlights Section --- */
+.dealership-highlights {
+  background-color: #eef7ff; /* Light blue background */
+  text-align: center;
+}
+
+.dealership-highlights h2 {
+  font-size: 2.5em;
+  color: #222;
+  margin-bottom: 40px;
+}
+
+.highlight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.highlight-content .text-content {
+  text-align: left;
+  max-width: 600px;
+}
+
+.highlight-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.highlight-content ul li {
+  background: url('/icons/check-mark.svg') no-repeat left center; /* Placeholder for a checkmark icon */
+  background-size: 20px;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 1.1em;
+}
+/* If you don't have an icon, you can use: */
+/* .highlight-content ul li::before {
+  content: '✔';
+  color: #333;
+  margin-right: 10px;
+} */
+
+.highlight-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Call to Action Section --- */
+.cta-section {
+  background-color: #333; /* Dark background for CTA */
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta-section h2 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.cta-section .btn.secondary-btn {
+  background-color: white;
+  color: #333;
+  border-color: white;
+}
+
+.cta-section .btn.secondary-btn:hover {
+  background-color: #ffd700;
+  color: #333;
+  border-color: #ffd700;
+}
+
+/* --- Responsive Adjustments --- */
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row; /* Side-by-side on larger screens */
+    text-align: left;
+    padding: 80px 40px;
+  }
+
+  .hero-content {
+    order: 1; /* Content first */
+    padding-right: 30px;
+  }
+
+  .hero-image {
+    order: 2; /* Image second */
+    max-width: 50%;
+  }
+
+  .hero-buttons {
+    justify-content: flex-start; /* Align buttons left */
+  }
+
+  .dealership-highlights .highlight-content {
+    flex-direction: row; /* Side-by-side on larger screens */
+    text-align: left;
+  }
+
+  .highlight-content .text-content {
+    padding-right: 30px;
+  }
+
+  .highlight-image {
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-section h1 {
+    font-size: 4.5em;
+  }
+  .services-overview h2,
+  .dealership-highlights h2,
+  .cta-section h2 {
+    font-size: 3em;
+  }
+}
