@@ -1,11 +1,15 @@
 nav {
+  display: flex;
+  justify-content: right;
   background-color: #333;
-  padding: 10px;
+  padding: 30px;
+  letter-spacing: 5px;
+  
 }
 ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 40px;
 }
 a {
   color: white;
@@ -18,23 +22,25 @@ a.active {
 }
 aside {
   width: 200px;
-  background-color: #333;
+  background-color: #33333397;
   padding: 20px;
   min-height: 100vh;
 }
 aside h3 {
   margin-top: 0;
+  letter-spacing: 5px;
 }
 aside ul {
   flex-direction: column;
   padding: 0;
 }
 aside li {
-  padding: 10px;
+  padding: 0px;
   cursor: pointer;
+  letter-spacing: 5px;
 }
 aside li:hover {
-  background-color: #e0e0e0;
+  color: #000000;
 }
 main {
   padding: 20px;
