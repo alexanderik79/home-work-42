@@ -15,7 +15,7 @@ function Home() {
           </div>
         </div>
         {/* Placeholder for hero image */}
-        <img src="/src/assets/hero-car.jpg" alt="Luxury car in a modern dealership" className="hero-image" />
+        <img src="/images/hero-car.jpg" alt="Luxury car in a modern dealership" className="hero-image" />
       </section>
 
       {/* Services Overview */}
@@ -23,19 +23,19 @@ function Home() {
         <h2>Our Services</h2>
         <div className="service-cards">
           <div className="card">
-            <img src="/src/assets/service-repair.jpg" alt="Car on a lift in a service bay" className="card-image" />
+            <img src="/images/service-repair.jpg" alt="Car on a lift in a service bay" className="card-image" />
             <h3>Expert Auto Repair</h3>
             <p>From engine diagnostics to brake repairs, our certified technicians ensure your vehicle runs smoothly and safely.</p>
             <a href="/services/repair" className="card-link">Learn More</a>
           </div>
           <div className="card">
-            <img src="/src/assets/service-maintenance.jpg" alt="Mechanic checking car engine" className="card-image" />
+            <img src="/images/service-maintenance.jpg" alt="Mechanic checking car engine" className="card-image" />
             <h3>Routine Maintenance</h3>
             <p>Keep your car in top condition with oil changes, tire rotations, and scheduled inspections. Prevent issues before they start.</p>
             <a href="/services/maintenance" className="card-link">Learn More</a>
           </div>
           <div className="card">
-            <img src="/src/assets/service-detailing.jpg" alt="Car being detailed, sparkling clean" className="card-image" />
+            <img src="/images/service-detailing.jpg" alt="Car being detailed, sparkling clean" className="card-image" />
             <h3>Premium Detailing</h3>
             <p>Give your car the ultimate pampering. Our detailing services restore its shine, inside and out.</p>
             <a href="/services/detailing" className="card-link">Learn More</a>
@@ -58,7 +58,7 @@ function Home() {
             <a href="/cars" className="btn primary-btn">View Current Inventory</a>
           </div>
           {/* Placeholder for dealership image */}
-          <img src="/src/assets/dealership-showroom.jpg" alt="Spacious car showroom with multiple vehicles" className="highlight-image" />
+          <img src="/images/dealership-showroom.jpg" alt="Spacious car showroom with multiple vehicles" className="highlight-image" />
         </div>
       </section>
 

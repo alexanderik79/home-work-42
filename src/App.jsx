@@ -5,9 +5,16 @@ import Contact from './pages/Contact';
 import CarDetail from './pages/CarDetail';
 import './App.css';
 
+// Получаем basename из переменной окружения
+// process.env.VITE_APP_BASENAME для Vite
+// process.env.REACT_APP_BASENAME для Create React App
+const basename = import.meta.env.VITE_APP_BASENAME || '/'; // Для Vite
+// const basename = process.env.REACT_APP_BASENAME || '/'; // Для Create React App
+
 function App() {
   return (
-    <BrowserRouter>
+    // Используем полученное значение basename
+    <BrowserRouter basename={basename}>
       <nav>
         <ul>
           <li>
