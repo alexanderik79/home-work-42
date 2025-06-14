@@ -1,20 +1,39 @@
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Cars from './pages/Cars';
 import Contact from './pages/Contact';
 import CarDetail from './pages/CarDetail';
 import './App.css';
+import { useEffect } from 'react';
 
-// Получаем basename из переменной окружения
-// process.env.VITE_APP_BASENAME для Vite
-// process.env.REACT_APP_BASENAME для Create React App
-const basename = import.meta.env.VITE_APP_BASENAME || '/'; // Для Vite
-// const basename = process.env.REACT_APP_BASENAME || '/'; // Для Create React App
+const basename = import.meta.env.VITE_APP_BASENAME || '/';
+
+// Компонент для отладки и обработки redirect
+function DebugPath() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log('Current path:', location.pathname);
+    console.log('Basename:', basename);
+    console.log('Search params:', location.search);
+
+    // Проверяем query-параметр redirect
+    const params = new URLSearchParams(location.search);
+    const redirectPath = params.get('redirect');
+    if (redirectPath && redirectPath !== location.pathname) {
+      console.log('Redirecting to:', redirectPath);
+      navigate(redirectPath, { replace: true });
+    }
+  }, [location, navigate]);
+
+  return null;
+}
 
 function App() {
   return (
-    // Используем полученное значение basename
     <BrowserRouter basename={basename}>
+      <DebugPath />
       <nav>
         <ul>
           <li>
@@ -49,8 +68,10 @@ function App() {
         <Route path="/cars/:brand" element={<Cars />} />
         <Route path="/cars/details/:id" element={<CarDetail />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<div>404 - Страница не найдена</div>} />
       </Routes>
     </BrowserRouter>
   );
 }
+
 export default App;
