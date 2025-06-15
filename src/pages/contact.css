@@ -1,7 +1,9 @@
 .contact-page {
   padding: 20px;
+  width: 80%;
   max-width: 600px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .contact-page a {
@@ -64,4 +66,42 @@
   color: green;
   font-weight: bold;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 15px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .contact-form button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .contact-form {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page {
+    padding: 10px;
+  }
+
+  .form-group label {
+    font-size: 0.9em;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .contact-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .contact-form {
+    gap: 10px;
+  }
 }
