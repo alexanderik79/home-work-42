@@ -193,7 +193,7 @@ main {
   }
 
   aside {
-    width: 100%;
+    width: 30%;
     min-height: auto;
     padding: 15px;
     order: -1;
@@ -262,12 +262,17 @@ main {
   nav a {
     font-size: 15px;
   }
+
+  aside {
+    width: 30%;
+    font-size: 8px;
+  }
   aside ul {
     gap: 10px;
   }
   aside li {
     padding: 8px 10px;
-    font-size: 13px;
+    font-size: 8px;
   }
   .car-list {
     grid-template-columns: 1fr;
