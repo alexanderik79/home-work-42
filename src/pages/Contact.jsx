@@ -25,7 +25,9 @@ function Contact() {
   };
 
   return (
+
     <div className="contact-page">
+      <div><br /></div>
       <Link to="/">Back to Home</Link>
       <h2>Contact Us</h2>
       {submitted ? (

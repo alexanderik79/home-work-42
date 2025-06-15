@@ -3,11 +3,9 @@ import { NavLink } from 'react-router-dom';
 function Sidebar({ categories, selectedCategory, loading }) {
   return (
     <aside>
-      {loading ? (
-        <div>Loading brands...</div> // Simple loader for sidebar
-      ) : (
+      <div><br /></div>
         <>
-          <h3>Car Brands</h3>
+          {/* <h3>Car Brands</h3> */}
           <ul>
             {categories.map((category) => (
               <li key={category.id}>
@@ -24,7 +22,6 @@ function Sidebar({ categories, selectedCategory, loading }) {
             ))}
           </ul>
         </>
-      )}
     </aside>
   );
 }

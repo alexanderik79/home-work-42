@@ -53,6 +53,22 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.deal-section {
+  max-width: 100%;
+  display: flex;
+  padding: 0;
+}
+
+.deal-section :first-child{
+  width: 60%;
+  
+}
+
+.deal-section p{
+  text-align: justify;
+  letter-spacing: 2px;
+}
+
 /* --- Buttons --- */
 .btn {
   display: inline-block;

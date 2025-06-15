@@ -10,6 +10,7 @@ function Cars() {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const basename = import.meta.env.VITE_APP_BASENAME || '/';
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -82,16 +83,15 @@ function Cars() {
           <Sidebar
             categories={categories}
             selectedCategory={selectedCategory}
-            loading={loading && !categories.length} // Show loader in sidebar only when categories are loading
           />
           <main>
             <h2>
               {brand
                 ? `Cars by ${brand.charAt(0).toUpperCase() + brand.slice(1)}`
-                : 'This is the catalog page'}
+                : 'Why Buy a Car from Us?'}
             </h2>
             {loading && categories.length ? (
-              <Loader /> // Show loader in main when cars are loading
+              <Loader /> 
             ) : cars.length > 0 ? (
               <div className="car-list">
                 {cars.map((car) => (
@@ -99,7 +99,15 @@ function Cars() {
                 ))}
               </div>
             ) : (
-              <p>Select a brand to view cars</p>
+            
+            <div className='deal-section'>
+              <div>
+                <p>At our dealership, we don’t just sell cars — we help you find the perfect vehicle for your lifestyle. With a wide selection of top-quality vehicles from trusted brands, competitive prices, and a commitment to customer satisfaction, we make car buying simple, transparent, and stress-free. Whether you're looking for performance, comfort, or reliability, our expert team is here to guide you every step of the way. Drive away with confidence — choose us for your next car.</p>
+              </div>
+              <div>
+                <img src={`${basename}images/deal.jpg`} alt="Deal" className="hero-image" />
+              </div>
+            </div>      
             )}
           </main>
         </>

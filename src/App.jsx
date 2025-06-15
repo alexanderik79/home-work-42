@@ -14,11 +14,7 @@ function DebugPath() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('Current path:', location.pathname);
-    console.log('Basename:', basename);
-    console.log('Search params:', location.search);
 
-    // Проверяем query-параметр redirect
     const params = new URLSearchParams(location.search);
     const redirectPath = params.get('redirect');
     if (redirectPath && redirectPath !== location.pathname) {
@@ -62,14 +58,16 @@ function App() {
           </li>
         </ul>
       </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cars" element={<Cars />} />
-        <Route path="/cars/:brand" element={<Cars />} />
-        <Route path="/cars/details/:id" element={<CarDetail />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<div>404 - Страница не найдена</div>} />
-      </Routes>
+      <div className="content-wrapper">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cars" element={<Cars />} />
+          <Route path="/cars/:brand" element={<Cars />} />
+          <Route path="/cars/details/:id" element={<CarDetail />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<div>404 - Page not found</div>} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
