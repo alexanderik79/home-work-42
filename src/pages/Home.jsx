@@ -80,7 +80,7 @@ function Home() {
         <div className="cta-content">
           <h2 data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">Ready to experience the difference?</h2>
           <p data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">Book a service appointment or schedule a test drive today!</p>
-          <NavLink  data-aos="fade-zoom" data-aos-duration="800" data-aos-delay="500"
+          <NavLink  data-aos="fade-zoom" data-aos-duration="1000" data-aos-delay="500" data-aos-offset="-100"
             to="/contact"
             className={({ isActive }) => (isActive ? 'btn secondary-btn active-link' : 'btn secondary-btn')}
           >

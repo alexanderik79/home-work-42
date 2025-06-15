@@ -66,7 +66,7 @@ function Contact() {
               required
             />
           </div>
-          <button type="submit">Send Message</button>
+          <button type="submit" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-offset="0">Send Message</button>
         </form>
       )}
     </div>
