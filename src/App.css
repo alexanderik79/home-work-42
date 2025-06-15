@@ -19,7 +19,7 @@ nav {
   display: flex;
   justify-content: right;
   background-color: #333;
-  padding: 30px;
+  padding: 15px;
   letter-spacing: 5px;
   position: fixed;
   top: 0;
