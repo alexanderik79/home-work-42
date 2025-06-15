@@ -36,7 +36,7 @@ function CarDetail() {
   if (!car) return <div>Car not found</div>;
 
   return (
-    <div className="car-detail">
+    <div className="car-detail" data-aos="fade-zoom">
       <Link to="/cars">Back to Cars</Link>
       <h2>{car.name}</h2>
       <p>{car.description}</p>

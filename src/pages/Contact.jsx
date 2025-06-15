@@ -29,14 +29,14 @@ function Contact() {
     <div className="contact-page">
       <div><br /></div>
       <Link to="/">Back to Home</Link>
-      <h2>Contact Us</h2>
+      <h2 data-aos="fade-up" data-aos-delay="100">Contact Us</h2>
       {submitted ? (
         <p className="success-message">Thank you! Your message has been sent.</p>
       ) : (
         <form onSubmit={handleSubmit} className="contact-form">
           <div className="form-group">
-            <label htmlFor="name">Name:</label>
-            <input
+            <label htmlFor="name" data-aos="fade-up" data-aos-delay="200" >Name:</label>
+            <input  data-aos="fade-up" data-aos-delay="150"
               type="text"
               id="name"
               name="name"
@@ -46,8 +46,8 @@ function Contact() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input
+            <label htmlFor="email"  data-aos="fade-up" data-aos-delay="200">Email:</label>
+            <input  data-aos="fade-up" data-aos-delay="250"
               type="email"
               id="email"
               name="email"
@@ -57,8 +57,8 @@ function Contact() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="message">Message:</label>
-            <textarea
+            <label htmlFor="message" data-aos="fade-up" data-aos-delay="300">Message:</label>
+            <textarea  data-aos="fade-up" data-aos-delay="350"
               id="message"
               name="message"
               value={formData.message}

@@ -80,7 +80,7 @@ function Cars() {
         <div>Error: {error}</div>
       ) : (
         <>
-          <Sidebar
+          <Sidebar  data-aos="fade-in"
             categories={categories}
             selectedCategory={selectedCategory}
           />
@@ -101,7 +101,7 @@ function Cars() {
               </div>
             ) : (
             
-            <div className='deal-section'>
+            <div className='deal-section' data-aos="fade-zoom">
               <div>
                 <p>At our dealership, we don’t just sell cars — we help you find the perfect vehicle for your lifestyle. With a wide selection of top-quality vehicles from trusted brands, competitive prices, and a commitment to customer satisfaction, we make car buying simple, transparent, and stress-free. Whether you're looking for performance, comfort, or reliability, our expert team is here to guide you every step of the way. Drive away with confidence — choose us for your next car.</p>
               </div>

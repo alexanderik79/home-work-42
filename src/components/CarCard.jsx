@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function CarCard({ car }) {
   return (
-    <Link to={`/cars/details/${car.id}`} className="car-card">
+    <Link to={`/cars/details/${car.id}`} className="car-card" data-aos="fade-zoom">
       <h3>{car.name}</h3>
       <p>{car.description}</p>
       <p>Price: ${car.price.toLocaleString()}</p>

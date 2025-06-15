@@ -6,6 +6,9 @@ import CarDetail from './pages/CarDetail';
 import './App.css';
 import { useEffect } from 'react';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const basename = import.meta.env.VITE_APP_BASENAME || '/';
 
 // Компонент для отладки и обработки redirect
@@ -14,6 +17,16 @@ function DebugPath() {
   const navigate = useNavigate();
 
   useEffect(() => {
+
+    AOS.init({
+      offset: 100, // Смещение (в px) от нижней части окна просмотра для запуска анимации
+      duration: 600, // Длительность анимации (в ms)
+      easing: 'ease-in-out', // Тип easing
+      once: true, // Анимировать только один раз при прокрутке вниз
+      mirror: false, // Анимировать элементы каждый раз при прокрутке вверх/вниз
+      anchorPlacement: 'top-bottom', // Где должен начинаться триггер прокрутки
+    });
+    AOS.refresh();
 
     const params = new URLSearchParams(location.search);
     const redirectPath = params.get('redirect');
@@ -32,7 +45,7 @@ function App() {
       <DebugPath />
       <nav>
         <ul>
-          <li>
+          <li data-aos="fade-down" data-aos-duration="600" data-aos-delay="100">
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? 'active' : '')}
@@ -40,7 +53,7 @@ function App() {
               Home
             </NavLink>
           </li>
-          <li>
+          <li data-aos="fade-down" data-aos-duration="600" data-aos-delay="300">
             <NavLink
               to="/cars"
               className={({ isActive }) => (isActive ? 'active' : '')}
@@ -48,7 +61,7 @@ function App() {
               Cars
             </NavLink>
           </li>
-          <li>
+          <li data-aos="fade-down" data-aos-duration="600" data-aos-delay="500">
             <NavLink
               to="/contact"
               className={({ isActive }) => (isActive ? 'active' : '')}
