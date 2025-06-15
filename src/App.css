@@ -195,7 +195,7 @@ main {
   aside {
     width: 30%;
     min-height: auto;
-    padding: 15px;
+    padding: 0;
     order: -1;
     background-color: #333333;
   }
@@ -214,7 +214,7 @@ main {
   }
 
   aside li {
-    padding: 5px 10px;
+    /* padding: 5px 10px; */
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -244,7 +244,7 @@ main {
 
   .car-detail {
     padding: 15px;
-    padding-top: 20px;
+    padding-top: 40px;
   }
 
   .car-photos img {
@@ -271,17 +271,18 @@ main {
     gap: 10px;
   }
   aside li {
-    padding: 8px 10px;
-    font-size: 8px;
+    /* padding: 8px 10px; */
+    font-size: 7px;
   }
   .car-list {
     grid-template-columns: 1fr;
-    padding: 10px;
+    /* padding: 10px; */
   }
   .car-card {
     padding: 10px;
   }
   .car-detail {
     padding: 10px;
+    padding-top: 40px;
   }
 }
