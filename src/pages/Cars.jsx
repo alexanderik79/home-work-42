@@ -91,7 +91,8 @@ function Cars() {
                 : 'Why Buy a Car from Us?'}
             </h2>
             {loading && categories.length ? (
-              <Loader /> 
+                            <Loader /> 
+
             ) : cars.length > 0 ? (
               <div className="car-list">
                 {cars.map((car) => (

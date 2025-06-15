@@ -164,6 +164,11 @@ main {
   object-fit: cover;
 }
 
+
+.loader-cont {
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .content-wrapper {
     flex-direction: column;
