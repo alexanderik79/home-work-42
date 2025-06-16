@@ -1,0 +1,55 @@
+.features-container {
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+.feature-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.feature-section > div {
+  flex: 1;
+  padding: 10px;
+}
+
+.feature-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.feature-section p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Адаптивність для мобільних */
+@media (max-width: 768px) {
+  .feature-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .feature-section > div {
+    width: 100%;
+  }
+
+  .hero-image {
+    margin-top: 20px;
+  }
+}

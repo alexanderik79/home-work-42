@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Loader from '../components/Loader';
 import CarCard from '../components/CarCard';
+import FeaturesSection from '../components/FeaturesSection';
 
 function Cars() {
   const { brand } = useParams();
@@ -101,14 +102,9 @@ function Cars() {
               </div>
             ) : (
             
-            <div className='deal-section' data-aos="fade-zoom">
-              <div>
-                <p>At our dealership, we don’t just sell cars — we help you find the perfect vehicle for your lifestyle. With a wide selection of top-quality vehicles from trusted brands, competitive prices, and a commitment to customer satisfaction, we make car buying simple, transparent, and stress-free. Whether you're looking for performance, comfort, or reliability, our expert team is here to guide you every step of the way. Drive away with confidence — choose us for your next car.</p>
-              </div>
-              <div>
-                <img src={`${basename}images/deal.jpg`} alt="Deal" className="hero-image" />
-              </div>
-            </div>      
+            <FeaturesSection />
+
+
             )}
           </main>
         </>

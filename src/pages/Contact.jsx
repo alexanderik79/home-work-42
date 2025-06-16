@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './contact.css';
+import ContactSection from '../components/ContactSection';
+
 
 
 function Contact() {
@@ -25,7 +27,7 @@ function Contact() {
   };
 
   return (
-
+    <div>
     <div className="contact-page">
       <div><br /></div>
       <Link to="/">Back to Home</Link>
@@ -67,10 +69,12 @@ function Contact() {
             />
           </div>
           <button type="submit" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-offset="0">Send Message</button>
-          <div><br /></div>
+
         </form>
 
       )}
+    </div>
+    <ContactSection />
     </div>
   );
 }
