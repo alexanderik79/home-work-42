@@ -35,7 +35,7 @@ const FeaturesSection = () => {
           <img
             src={`${basename}images/warranty.jpg`}
             alt="Warranty"
-            className="hero-image"
+            className="feature-image"
           />
         </div>
       </div>
@@ -55,7 +55,7 @@ const FeaturesSection = () => {
           <img
             src={`${basename}images/credit.jpg`}
             alt="Financing"
-            className="hero-image"
+            className="feature-image"
           />
         </div>
       </div>
@@ -75,7 +75,7 @@ const FeaturesSection = () => {
           <img
             src={`${basename}images/service.jpg`}
             alt="Service"
-            className="hero-image"
+            className="feature-image"
           />
         </div>
       </div>
