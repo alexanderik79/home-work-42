@@ -6,17 +6,6 @@ import './FeaturesSection.css';
 const basename = import.meta.env.VITE_APP_BASENAME || '/';
 
 const FeaturesSection = () => {
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false,
-      anchorPlacement: 'top-bottom',
-    });
-    AOS.refresh();
-  }, []);
 
   return (
     <div className="features-container">

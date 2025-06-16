@@ -5,18 +5,6 @@ import './ContactSection.css';
 const basename = import.meta.env.VITE_APP_BASENAME || '/';
 
 const ContactSection = () => {
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false,
-      anchorPlacement: 'top-bottom',
-    
-    });
-    AOS.refresh();
-  }, []);
 
   return (
     <div className="contact-container">
