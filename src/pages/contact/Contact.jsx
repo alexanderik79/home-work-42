@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import './contact.css';
 import ContactSection from '../../components/ContactSection/ContactSection';
 
-
-
 function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -29,7 +27,6 @@ function Contact() {
   return (
     <div>
     <div className="contact-page">
-      <div><br /></div>
       <Link to="/">Back to Home</Link>
       <h2 data-aos="fade-up" data-aos-delay="100">Contact Us</h2>
       {submitted ? (

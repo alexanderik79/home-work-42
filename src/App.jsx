@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route, NavLink, useLocation, useNavigate } from 
 import { useEffect } from 'react';
 import AOS from 'aos';
 
-import { Home, Cars, Contact, CarDetail } from './pages';
-
 import { AOS_CONFIG } from './constants/animation';
+
+import { routes }  from './constants/routes';
 
 import './App.css';
 import 'aos/dist/aos.css';
@@ -64,16 +64,14 @@ function App() {
           </li>
         </ul>
       </nav>
-      <div className="content-wrapper">
+     <div className="content-wrapper">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cars" element={<Cars />} />
-          <Route path="/cars/:brand" element={<Cars />} />
-          <Route path="/cars/details/:id" element={<CarDetail />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<div>404 - Page not found</div>} />
+          {routes.map(({ path, element }) => (
+            <Route key={path} path={path} element={element} />
+          ))}
         </Routes>
       </div>
+
     </BrowserRouter>
   );
 }
