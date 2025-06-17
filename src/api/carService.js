@@ -21,9 +21,7 @@ export const fetchCarsByCategory = async (categoryId) => {
   return response.data;
 };
 
-
 export async function getCarById(id) {
-    const response = await axios.get(`/products/product/${id}/${DEALER_NAME}`);
+    const response = await axiosInstance.get(`/products/product/${id}/${DEALER_NAME}`);
     return response.data;
-
 }
