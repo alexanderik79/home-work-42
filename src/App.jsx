@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route, NavLink, useLocation, useNavigate } from 'react-router-dom';
-import Home from './pages/Home';
-import Cars from './pages/Cars';
-import Contact from './pages/Contact';
-import CarDetail from './pages/CarDetail';
-import './App.css';
 import { useEffect } from 'react';
-
 import AOS from 'aos';
+
+import { Home, Cars, Contact, CarDetail } from './pages';
+
+import { AOS_CONFIG } from './constants/animation';
+
+import './App.css';
 import 'aos/dist/aos.css';
 
 const basename = import.meta.env.VITE_APP_BASENAME || '/';
@@ -18,14 +18,7 @@ function DebugPath() {
 
   useEffect(() => {
 
-    AOS.init({
-      offset: 100, // Смещение (в px) от нижней части окна просмотра для запуска анимации
-      duration: 600, // Длительность анимации (в ms)
-      easing: 'ease-in-out', // Тип easing
-      once: true, // Анимировать только один раз при прокрутке вниз
-      mirror: false, // Анимировать элементы каждый раз при прокрутке вверх/вниз
-      anchorPlacement: 'top-bottom', // Где должен начинаться триггер прокрутки
-    });
+    AOS.init(AOS_CONFIG);
     AOS.refresh();
 
     const params = new URLSearchParams(location.search);
@@ -45,7 +38,7 @@ function App() {
       <DebugPath />
       <nav>
         <ul>
-          <li data-aos="fade-down" data-aos-duration="600" data-aos-delay="100">
+          <li data-aos="fade-down" data-aos-delay="100">
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? 'active' : '')}
@@ -53,7 +46,7 @@ function App() {
               Home
             </NavLink>
           </li>
-          <li data-aos="fade-down" data-aos-duration="600" data-aos-delay="300">
+          <li data-aos="fade-down" data-aos-delay="300">
             <NavLink
               to="/cars"
               className={({ isActive }) => (isActive ? 'active' : '')}
@@ -61,7 +54,7 @@ function App() {
               Cars
             </NavLink>
           </li>
-          <li data-aos="fade-down" data-aos-duration="600" data-aos-delay="500">
+          <li data-aos="fade-down" data-aos-delay="500">
             <NavLink
               to="/contact"
               className={({ isActive }) => (isActive ? 'active' : '')}
