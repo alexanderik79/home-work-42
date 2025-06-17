@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './contact.css';
-import ContactSection from '../components/ContactSection';
+import ContactSection from '../../components/ContactSection/ContactSection';
 
 
 

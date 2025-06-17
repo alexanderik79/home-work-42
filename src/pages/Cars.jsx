@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import Sidebar from '../components/Sidebar';
-import Loader from '../components/Loader';
-import CarCard from '../components/CarCard';
-import FeaturesSection from '../components/FeaturesSection';
+
+import { Sidebar, Loader, CarCard, FeaturesSection } from '../components';
+import { fetchCategories, fetchCarsByCategory } from '../api/carService';
 
 function Cars() {
   const { brand } = useParams();
@@ -11,21 +10,19 @@ function Cars() {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const basename = import.meta.env.VITE_APP_BASENAME || '/';
+
+  const selectedCategory = useMemo(() => {
+    return categories.find(
+      (cat) => cat.name.toLowerCase() === brand?.toLowerCase()
+    );
+  }, [categories, brand]);
+
+  const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const loadCategories = async () => {
       try {
-        const response = await fetch(
-          'https://car-dealer-app.botdepo.shop/api/categories/all/AutoPlus',
-          {
-            headers: {
-              'X-API-Key': '0190ed4a-9d93-4b55-ac50-96123dbc39e6',
-            },
-          }
-        );
-        if (!response.ok) throw new Error('Failed to fetch categories');
-        const data = await response.json();
+        const data = await fetchCategories();
         setCategories(data);
       } catch (err) {
         setError(err.message);
@@ -33,32 +30,20 @@ function Cars() {
         setLoading(false);
       }
     };
-    fetchCategories();
+    loadCategories();
   }, []);
 
   useEffect(() => {
-    if (!brand) {
-      setCars([]);
-      setLoading(false);
-      return;
-    }
-    const fetchCars = async () => {
+    const loadCars = async () => {
+      if (!brand || !selectedCategory) {
+        setCars([]);
+        setLoading(false);
+        return;
+      }
+
       setLoading(true);
       try {
-        const category = categories.find(
-          (cat) => cat.name.toLowerCase() === brand.toLowerCase()
-        );
-        if (!category) throw new Error('Category not found');
-        const response = await fetch(
-          `https://car-dealer-app.botdepo.shop/api/products/category/${category.id}/AutoPlus`,
-          {
-            headers: {
-              'X-API-Key': '0190ed4a-9d93-4b55-ac50-96123dbc39e6',
-            },
-          }
-        );
-        if (!response.ok) throw new Error('Failed to fetch cars');
-        const data = await response.json();
+        const data = await fetchCarsByCategory(selectedCategory.id);
         setCars(data);
       } catch (err) {
         setError(err.message);
@@ -66,34 +51,31 @@ function Cars() {
         setLoading(false);
       }
     };
-    if (categories.length > 0) {
-      fetchCars();
-    }
-  }, [brand, categories]);
 
-  const selectedCategory = categories.find(
-    (cat) => cat.name.toLowerCase() === brand?.toLowerCase()
-  );
+    if (categories.length > 0) {
+      loadCars();
+    }
+  }, [brand, categories, selectedCategory]);
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: "flex" }}>
       {error ? (
         <div>Error: {error}</div>
       ) : (
         <>
-          <Sidebar  data-aos="fade-in"
+          <Sidebar
+            data-aos="fade-in"
             categories={categories}
             selectedCategory={selectedCategory}
           />
           <main>
             <h2>
               {brand
-                ? `Cars by ${brand.charAt(0).toUpperCase() + brand.slice(1)}`
-                : 'Why Buy a Car from Us?'}
+                ? `Cars by ${capitalize(brand)}`
+                : "Why Buy a Car from Us?"}
             </h2>
-            {loading && categories.length ? (
-                            <Loader /> 
-
+            {loading ? (
+              <Loader />
             ) : cars.length > 0 ? (
               <div className="car-list">
                 {cars.map((car) => (
@@ -101,10 +83,7 @@ function Cars() {
                 ))}
               </div>
             ) : (
-            
-            <FeaturesSection />
-
-
+              <FeaturesSection />
             )}
           </main>
         </>

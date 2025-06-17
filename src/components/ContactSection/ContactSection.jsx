@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
+
 import 'aos/dist/aos.css';
 import './ContactSection.css'; 
+
 const basename = import.meta.env.VITE_APP_BASENAME || '/';
 
 const ContactSection = () => {
