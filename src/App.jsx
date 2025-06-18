@@ -1,41 +1,21 @@
-import { BrowserRouter, Routes, Route, NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import AOS from 'aos';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 
-import { AOS_CONFIG } from './constants/animation';
+import useDebugPath from './hooks/useDebugPath';
+import { routes } from './constants/routes';
 
-import { routes }  from './constants/routes';
-
+import 'aos/dist/aos.css'; 
 import './App.css';
-import 'aos/dist/aos.css';
 
 const basename = import.meta.env.VITE_APP_BASENAME || '/';
 
-// Компонент для отладки и обработки redirect
-function DebugPath() {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-
-    AOS.init(AOS_CONFIG);
-    AOS.refresh();
-
-    const params = new URLSearchParams(location.search);
-    const redirectPath = params.get('redirect');
-    if (redirectPath && redirectPath !== location.pathname) {
-      console.log('Redirecting to:', redirectPath);
-      navigate(redirectPath, { replace: true });
-    }
-  }, [location, navigate]);
-
-  return null;
-}
 
 function App() {
+  
+  useDebugPath(); 
+  
   return (
     <BrowserRouter basename={basename}>
-      <DebugPath />
+ 
       <nav>
         <ul>
           <li data-aos="fade-down" data-aos-delay="100">
@@ -64,14 +44,13 @@ function App() {
           </li>
         </ul>
       </nav>
-     <div className="content-wrapper">
+      <div className="content-wrapper">
         <Routes>
           {routes.map(({ path, element }) => (
             <Route key={path} path={path} element={element} />
           ))}
         </Routes>
       </div>
-
     </BrowserRouter>
   );
 }

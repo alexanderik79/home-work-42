@@ -19,7 +19,6 @@ function Home() {
             </button>
             <Link 
               data-aos="fade-up" 
-              data-aos-duration="600" 
               data-aos-delay="400"
               to="/cars"
 
