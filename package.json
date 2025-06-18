@@ -5,7 +5,7 @@
   "type": "module",
   "homepage": "https://alexanderik79.github.io/home-work-42/",
   "scripts": {
-    "build": "vite build && cp public/404.html dist/404.html",
+    "build": "vite build && public/404.html dist/404.html",
     "dev": "vite",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"

@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 function Sidebar({ categories, selectedCategory, loading }) {
   return (
     <aside>
-      <div><br /></div>
         <>
           {/* <h3>Car Brands</h3> */}
           <ul>

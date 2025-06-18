@@ -196,8 +196,9 @@ main {
     width: 30%;
     min-height: auto;
     padding: 0;
+    padding-top: 20px;
     order: -1;
-    background-color: #333333;
+    background-color: #686868;
   }
 
   aside h3 {
@@ -261,6 +262,7 @@ main {
   aside {
     width: 30%;
     font-size: 8px;
+    background-color: #686868;
   }
   aside ul {
     gap: 10px;
