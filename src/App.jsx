@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'; 
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
 import AOS from 'aos'; 
 
 import { AOS_CONFIG } from './constants/animation';
 
 import DebugPathProvider from './components/DebugPathProvider'; 
+import MainNavigation from './components/MainNavigation';
 
 import { routes } from './constants/routes';
 
@@ -22,34 +23,9 @@ function App() {
   return (
     <BrowserRouter basename={basename}>
       <DebugPathProvider /> 
-      <nav>
-        <ul>
-          <li data-aos="fade-down" data-aos-delay="100">
-            <NavLink
-              to="/"
-              className={({ isActive }) => (isActive ? 'active' : '')}
-            >
-              Home
-            </NavLink>
-          </li>
-          <li data-aos="fade-down" data-aos-delay="300">
-            <NavLink
-              to="/cars"
-              className={({ isActive }) => (isActive ? 'active' : '')}
-            >
-              Cars
-            </NavLink>
-          </li>
-          <li data-aos="fade-down" data-aos-delay="500">
-            <NavLink
-              to="/contact"
-              className={({ isActive }) => (isActive ? 'active' : '')}
-            >
-              Contact
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      
+      <MainNavigation />
+      
       <div className="content-wrapper">
         <Routes>
           {routes.map(({ path, element }) => (
