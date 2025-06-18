@@ -20,3 +20,8 @@ export const fetchCarsByCategory = async (categoryId) => {
   const response = await axiosInstance.get(`/products/category/${categoryId}/${DEALER_NAME}`);
   return response.data;
 };
+
+export async function getCarById(id) {
+    const response = await axiosInstance.get(`/products/product/${id}/${DEALER_NAME}`);
+    return response.data;
+}

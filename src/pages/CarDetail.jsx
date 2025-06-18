@@ -1,39 +1,14 @@
-import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import Loader from '../components/Loader';
+import useCarById from '../hooks/useCarById';
 
 function CarDetail() {
   const { id } = useParams();
-  const [car, setCar] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchCarDetails = async () => {
-      try {
-        const response = await fetch(
-          `https://car-dealer-app.botdepo.shop/api/products/product/${id}/AutoPlus`,
-          {
-            headers: {
-              'X-API-Key': '0190ed4a-9d93-4b55-ac50-96123dbc39e6',
-            },
-          }
-        );
-        if (!response.ok) throw new Error('Failed to load car details');
-        const data = await response.json();
-        setCar(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchCarDetails();
-  }, [id]);
+  const { car, loading, error } = useCarById(id);
 
   if (loading) return <Loader />;
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <div>Error: {error.message}</div>;
   if (!car) return <div>Car not found</div>;
 
   return (

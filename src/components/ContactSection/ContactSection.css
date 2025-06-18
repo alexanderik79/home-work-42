@@ -77,6 +77,11 @@
   .contact-section {
     flex-direction: column;
     text-align: center;
+    padding-top: 20px;
+  }
+
+  .contact-page {
+    padding-top: 30px;
   }
 
   .contact-info,
