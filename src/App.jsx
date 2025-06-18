@@ -1,6 +1,11 @@
+import React, { useEffect } from 'react'; 
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import AOS from 'aos'; 
 
-import useDebugPath from './hooks/useDebugPath';
+import { AOS_CONFIG } from './constants/animation';
+
+import DebugPathProvider from './components/DebugPathProvider'; 
+
 import { routes } from './constants/routes';
 
 import 'aos/dist/aos.css'; 
@@ -8,14 +13,15 @@ import './App.css';
 
 const basename = import.meta.env.VITE_APP_BASENAME || '/';
 
-
 function App() {
-  
-  useDebugPath(); 
+  useEffect(() => {
+    AOS.init(AOS_CONFIG);
+    AOS.refresh();
+  }, []);
   
   return (
     <BrowserRouter basename={basename}>
- 
+      <DebugPathProvider /> 
       <nav>
         <ul>
           <li data-aos="fade-down" data-aos-delay="100">
