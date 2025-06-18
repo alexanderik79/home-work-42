@@ -6,7 +6,7 @@ import { AOS_CONFIG } from './constants/animation';
 
 import DebugPathProvider from './components/DebugPathProvider'; 
 import MainNavigation from './components/MainNavigation';
-
+import ScrollToTop from './components/ScrollToTop';
 import { ROUTES } from './constants/routes';
 
 import 'aos/dist/aos.css'; 
@@ -24,6 +24,8 @@ function App() {
     <BrowserRouter basename={basename}>
       <DebugPathProvider /> 
       
+      <ScrollToTop />
+
       <MainNavigation />
       
       <div className="content-wrapper">
