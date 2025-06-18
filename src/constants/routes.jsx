@@ -3,7 +3,7 @@ import Cars from '../pages/Cars';
 import CarDetail from '../pages/CarDetail';
 import Contact from '../pages/contact/Contact';
 
-export const routes = [
+export const ROUTES = [
   { path: '/', element: <Home /> },
   { path: '/cars', element: <Cars /> },
   { path: '/cars/:brand', element: <Cars /> },

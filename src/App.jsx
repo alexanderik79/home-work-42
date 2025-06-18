@@ -7,7 +7,7 @@ import { AOS_CONFIG } from './constants/animation';
 import DebugPathProvider from './components/DebugPathProvider'; 
 import MainNavigation from './components/MainNavigation';
 
-import { routes } from './constants/routes';
+import { ROUTES } from './constants/routes';
 
 import 'aos/dist/aos.css'; 
 import './App.css';
@@ -28,7 +28,7 @@ function App() {
       
       <div className="content-wrapper">
         <Routes>
-          {routes.map(({ path, element }) => (
+          {ROUTES.map(({ path, element }) => (
             <Route key={path} path={path} element={element} />
           ))}
         </Routes>

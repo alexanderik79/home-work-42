@@ -1,15 +1,14 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Sidebar, Loader, CarCard, FeaturesSection } from '../components';
-import { fetchCategories, fetchCarsByCategory } from '../api/carService';
+import useCategories from '../hooks/useCategories';
+import useCarsByCategory from '../hooks/useCarsByCategory';
 
 function Cars() {
   const { brand } = useParams();
-  const [categories, setCategories] = useState([]);
-  const [cars, setCars] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+
+  const { categories, loading: categoriesLoading, error: categoriesError } = useCategories();
 
   const selectedCategory = useMemo(() => {
     return categories.find(
@@ -17,56 +16,24 @@ function Cars() {
     );
   }, [categories, brand]);
 
+  const { cars, loading: carsLoading, error: carsError } = useCarsByCategory(selectedCategory?.id);
+
   const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-  useEffect(() => {
-    const loadCategories = async () => {
-      try {
-        const data = await fetchCategories();
-        setCategories(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadCategories();
-  }, []);
-
-  useEffect(() => {
-    const loadCars = async () => {
-      if (!brand || !selectedCategory) {
-        setCars([]);
-        setLoading(false);
-        return;
-      }
-
-      setLoading(true);
-      try {
-        const data = await fetchCarsByCategory(selectedCategory.id);
-        setCars(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (categories.length > 0) {
-      loadCars();
-    }
-  }, [brand, categories, selectedCategory]);
+  const overallLoading = categoriesLoading || carsLoading;
+  const overallError = categoriesError || carsError;
 
   return (
     <div style={{ display: "flex" }}>
-      {error ? (
-        <div>Error: {error}</div>
+      {overallError ? (
+        <div>Error: {overallError.message || overallError}</div>
       ) : (
         <>
           <Sidebar
             data-aos="fade-in"
             categories={categories}
             selectedCategory={selectedCategory}
+            loading={categoriesLoading}
           />
           <main>
             <h2>
@@ -74,7 +41,7 @@ function Cars() {
                 ? `Cars by ${capitalize(brand)}`
                 : "Why Buy a Car from Us?"}
             </h2>
-            {loading ? (
+            {overallLoading ? (
               <Loader />
             ) : cars.length > 0 ? (
               <div className="car-list">

@@ -1,31 +1,14 @@
-import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import Loader from '../components/Loader';
-import { getCarById } from '../api/carService';
+import useCarById from '../hooks/useCarById';
 
 function CarDetail() {
   const { id } = useParams();
-  const [car, setCar] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const loadCar = async () => {
-      try {
-        const data = await getCarById(id);
-        setCar(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadCar();
-  }, [id]);
+  const { car, loading, error } = useCarById(id);
 
   if (loading) return <Loader />;
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <div>Error: {error.message}</div>;
   if (!car) return <div>Car not found</div>;
 
   return (
