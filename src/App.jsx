@@ -4,7 +4,7 @@ import AOS from 'aos';
 
 import { AOS_CONFIG } from './constants/animation';
 
-import DebugPathProvider from './components/DebugPathProvider'; 
+import DebugPath from './components/DebugPath'; 
 import MainNavigation from './components/MainNavigation';
 import ScrollToTop from './components/ScrollToTop';
 import { ROUTES } from './constants/routes';
@@ -22,7 +22,7 @@ function App() {
   
   return (
     <BrowserRouter basename={basename}>
-      <DebugPathProvider /> 
+      <DebugPath /> 
       
       <ScrollToTop />
 

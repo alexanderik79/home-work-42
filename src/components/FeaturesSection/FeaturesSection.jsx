@@ -30,7 +30,7 @@ const FeaturesSection = () => {
       </div>
 
       {/* Блок 2: Кредит */}
-      <div className="feature-section" data-aos="fade-zoom" data-aos-delay="200">
+      <div className="feature-section" data-aos="fade-zoom">
         <div>
           <h2>Flexible Financing</h2>
           <p>
@@ -50,7 +50,7 @@ const FeaturesSection = () => {
       </div>
 
       {/* Блок 3: Обслуговування */}
-      <div className="feature-section" data-aos="fade-zoom" data-aos-delay="400">
+      <div className="feature-section" data-aos="fade-zoom">
         <div>
           <h2>Professional Service</h2>
           <p>

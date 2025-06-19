@@ -1,34 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'; 
+import { NavLink } from 'react-router-dom';
+import { NAV_LINKS } from '../constants/navigation'; 
 
 function MainNavigation() {
   return (
     <nav>
       <ul>
-        <li data-aos="fade-down" data-aos-delay="100">
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? 'active' : '')}
-          >
-            Home
-          </NavLink>
-        </li>
-        <li data-aos="fade-down" data-aos-delay="300">
-          <NavLink
-            to="/cars"
-            className={({ isActive }) => (isActive ? 'active' : '')}
-          >
-            Cars
-          </NavLink>
-        </li>
-        <li data-aos="fade-down" data-aos-delay="500">
-          <NavLink
-            to="/contact"
-            className={({ isActive }) => (isActive ? 'active' : '')}
-          >
-            Contact
-          </NavLink>
-        </li>
+        {NAV_LINKS.map((link) => (
+          <li key={link.path} data-aos="fade-down" data-aos-delay={link.aosDelay}>
+            <NavLink
+              to={link.path}
+              className={({ isActive }) => (isActive ? 'active' : '')}
+            >
+              {link.label}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );

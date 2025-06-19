@@ -1,6 +1,5 @@
-// src/hooks/useCategories.js
 import { useState, useEffect } from 'react';
-import { fetchCategories } from '../api/api'; 
+import { fetchData } from '../api/api'; // Изменено
 
 function useCategories() {
   const [categories, setCategories] = useState([]);
@@ -10,20 +9,20 @@ function useCategories() {
   useEffect(() => {
     const getCategories = async () => {
       try {
-        setLoading(true); 
-        const data = await fetchCategories();
+        setLoading(true);
+        const data = await fetchData('categories'); // Используем fetchData
         setCategories(data);
       } catch (err) {
-        setError(err); 
+        setError(err);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
     getCategories();
-  }, []); 
+  }, []);
 
-  return { categories, loading, error }; 
+  return { categories, loading, error };
 }
 
 export default useCategories;

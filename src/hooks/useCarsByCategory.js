@@ -1,6 +1,5 @@
-// src/hooks/useCarsByCategory.js
 import { useState, useEffect } from 'react';
-import { fetchCarsByCategory } from '../api/api'; 
+import { fetchData } from '../api/api'; 
 
 function useCarsByCategory(categoryId) {
   const [cars, setCars] = useState([]);
@@ -8,7 +7,6 @@ function useCarsByCategory(categoryId) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    
     if (!categoryId) {
       setCars([]);
       setLoading(false);
@@ -18,8 +16,8 @@ function useCarsByCategory(categoryId) {
     const getCars = async () => {
       try {
         setLoading(true);
-        setError(null); 
-        const data = await fetchCarsByCategory(categoryId);
+        setError(null);
+        const data = await fetchData('carsByCategory', categoryId); 
         setCars(data);
       } catch (err) {
         setError(err);
@@ -29,7 +27,7 @@ function useCarsByCategory(categoryId) {
     };
 
     getCars();
-  }, [categoryId]); 
+  }, [categoryId]);
 
   return { cars, loading, error };
 }
