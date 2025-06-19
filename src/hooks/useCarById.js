@@ -18,7 +18,7 @@ function useCarById(carId) {
         setLoading(true);
         setError(null);
         const data = await fetchData('carById', carId);
-        setCar(data); // <--- ВОТ ЧТО НУЖНО ДОБАВИТЬ
+        setCar(data); 
       } catch (err) {
         setError(err);
       } finally {
