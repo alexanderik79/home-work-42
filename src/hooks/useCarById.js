@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchData } from '../api/api'; 
+import { fetchData } from '../api/api'; // Убедитесь, что это правильный путь к вашему файлу api.js
 
 function useCarById(carId) {
   const [car, setCar] = useState(null);
@@ -17,7 +17,8 @@ function useCarById(carId) {
       try {
         setLoading(true);
         setError(null);
-        const data = await fetchData('carById', carId); 
+        const data = await fetchData('carById', carId);
+        setCar(data); // <--- ВОТ ЧТО НУЖНО ДОБАВИТЬ
       } catch (err) {
         setError(err);
       } finally {

@@ -24,7 +24,7 @@ function Cars() {
   const overallError = categoriesError || carsError;
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className='carsMainCont'>
       {overallError ? (
         <div>Error: {overallError.message || overallError}</div>
       ) : (

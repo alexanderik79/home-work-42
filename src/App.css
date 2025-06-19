@@ -99,6 +99,10 @@ main {
   box-sizing: border-box;
 }
 
+.carsMainCont {
+  display: flex;
+}
+
 .car-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
