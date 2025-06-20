@@ -9,11 +9,11 @@ const basename = import.meta.env.VITE_APP_BASENAME || '/';
 
 // Маппинг языковых кодов к названиям языков для alt-текстов и доступности
 const LANGUAGE_NAMES = {
-  en: 'English',
-  uk: 'Українська',
-  de: 'Deutsch',
-  pl: 'Polski',
-  nl: 'Nederlands',
+  en: '',
+  uk: '',
+  de: '',
+  pl: '',
+  nl: '',
 };
 
 function MainNavigation() {
