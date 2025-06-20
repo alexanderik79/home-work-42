@@ -4,7 +4,6 @@ import { NAV_LINKS } from '../../constants/navigation';
 import { useTranslation } from '../../contexts/LocalizationContext';
 import './MainNavigation.css';
 
-// Предполагаем, что флаги находятся в public/images/flags/
 const basename = import.meta.env.VITE_APP_BASENAME || '/';
 
 // Маппинг языковых кодов к названиям языков для alt-текстов и доступности
