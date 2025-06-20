@@ -3,17 +3,17 @@
 export const NAV_LINKS = [
   {
     path: '/',
-    label: 'Home',
+    labelKey: 'Home',
     aosDelay: '100',
   },
   {
     path: '/cars',
-    label: 'Cars',
+    labelKey: 'Cars',
     aosDelay: '300',
   },
   {
     path: '/contact',
-    label: 'Contact',
+    labelKey: 'Contact',
     aosDelay: '500',
   },
 ];

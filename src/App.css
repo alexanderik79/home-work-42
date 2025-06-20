@@ -49,6 +49,18 @@ nav a.active {
   /* font-weight: bold; */
 }
 
+.language-switcher {
+  margin-left: 20px; /* Отступ от навигации */
+}
+
+.language-switcher select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
 aside {
   width: 200px;
   background-color: #33333397;

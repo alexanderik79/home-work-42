@@ -1,69 +1,54 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
+import React from 'react';
+import AOS from 'aos'; 
 import 'aos/dist/aos.css';
-import './FeaturesSection.css'; 
-
-const basename = import.meta.env.VITE_APP_BASENAME || '/';
+import './FeaturesSection.css';
+import { useTranslation } from '../../contexts/LocalizationContext'; // Import the hook
 
 const FeaturesSection = () => {
+  const { t } = useTranslation(); 
 
   return (
     <div className="features-container">
-      {/* Блок 1: Гарантія */}
+      {/* Block 1: Warranty */}
       <div className="feature-section" data-aos="fade-zoom">
         <div>
-          <h2>Reliable Warranty</h2>
-          <p>
-            Buy with confidence thanks to our comprehensive warranty programs. We
-            offer extended coverage on all vehicles, protecting you from
-            unexpected repairs. Our team ensures your car stays in top condition,
-            so you can drive worry-free.
-          </p>
+          <h2>{t('features.warrantyTitle')}</h2>
+          <p>{t('features.warrantyDescription')}</p>
         </div>
         <div>
           <img
-            src={`${basename}images/warranty.jpg`}
-            alt="Warranty"
+            src={`${import.meta.env.VITE_APP_BASENAME || '/'}images/warranty.jpg`}
+            alt={t('features.warrantyTitle')} 
             className="feature-image"
           />
         </div>
       </div>
 
-      {/* Блок 2: Кредит */}
+      {/* Block 2: Credit */}
       <div className="feature-section" data-aos="fade-zoom">
         <div>
-          <h2>Flexible Financing</h2>
-          <p>
-            Make your dream car affordable with our tailored financing options. We
-            partner with leading banks to offer low interest rates and flexible
-            payment plans. Our experts will find the perfect solution to fit your
-            budget.
-          </p>
+          <h2>{t('features.financingTitle')}</h2>
+          <p>{t('features.financingDescription')}</p>
         </div>
         <div>
           <img
-            src={`${basename}images/credit.jpg`}
-            alt="Financing"
+            src={`${import.meta.env.VITE_APP_BASENAME || '/'}images/credit.jpg`}
+            alt={t('features.financingTitle')} 
             className="feature-image"
           />
         </div>
       </div>
 
-      {/* Блок 3: Обслуговування */}
+      {/* Block 3: Service */}
       <div className="feature-section" data-aos="fade-zoom">
         <div>
-          <h2>Professional Service</h2>
-          <p>
-            Trust your vehicle to our certified technicians. From routine
-            maintenance to complex repairs, we use only genuine parts and
-            state-of-the-art equipment to keep your car running smoothly. Your
-            satisfaction is our priority.
-          </p>
+          <h2>{t('features.serviceTitle')}</h2>
+          <p>{t('features.serviceDescription')}</p>
         </div>
         <div>
           <img
-            src={`${basename}images/service.jpg`}
-            alt="Service"
+            src={`${import.meta.env.VITE_APP_BASENAME || '/'}images/service.jpg`}
+            alt={t('features.serviceTitle')}
             className="feature-image"
           />
         </div>

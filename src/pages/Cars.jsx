@@ -4,9 +4,11 @@ import { useParams } from 'react-router-dom';
 import { Sidebar, Loader, CarCard, FeaturesSection } from '../components';
 import useCategories from '../hooks/useCategories';
 import useCarsByCategory from '../hooks/useCarsByCategory';
+import { useTranslation } from '../contexts/LocalizationContext'; // Раскомментируем и импортируем хук
 
 function Cars() {
   const { brand } = useParams();
+  const { t } = useTranslation(); // Получаем функцию перевода
 
   const { categories, loading: categoriesLoading, error: categoriesError } = useCategories();
 
@@ -26,7 +28,8 @@ function Cars() {
   return (
     <div className='carsMainCont'>
       {overallError ? (
-        <div>Error: {overallError.message || overallError}</div>
+        // Используем перевод для сообщения об ошибке
+        <div>{t('carDetail.error', { message: overallError.message || overallError })}</div>
       ) : (
         <>
           <Sidebar
@@ -38,8 +41,8 @@ function Cars() {
           <main>
             <h2>
               {brand
-                ? `Cars by ${capitalize(brand)}`
-                : "Why Buy a Car from Us?"}
+                ? t('cars.titleByBrand', { brand: capitalize(brand) }) // Используем перевод с плейсхолдером
+                : t('cars.whyBuyTitle')} {/* Используем перевод */}
             </h2>
             {overallLoading ? (
               <Loader />

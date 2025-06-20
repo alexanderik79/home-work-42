@@ -1,43 +1,36 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
+import React from 'react';
+import { Link } from 'react-router-dom'; // Link не используется, но оставлен, если понадобится
+import { useTranslation } from '../../contexts/LocalizationContext'; // Импортируем хук
 
-import 'aos/dist/aos.css';
-import './ContactSection.css'; 
-
-const basename = import.meta.env.VITE_APP_BASENAME || '/';
+import './ContactSection.css';
 
 const ContactSection = () => {
+  const { t } = useTranslation(); // Получаем функцию перевода
 
   return (
     <div className="contact-container">
       <div className="contact-section" data-aos="fade-zoom">
         <div className="contact-info">
-          <h2>Contact Us</h2>
-          <p>
-            We're here to assist you with all your automotive needs. Reach out to
-            us via phone, email, or visit our dealership in person. Our friendly
-            team is ready to answer your questions and provide exceptional
-            service.
-          </p>
+          <h2>{t('contactSection.title')}</h2>
+          <p>{t('contactSection.description')}</p>
           <ul>
             <li data-aos="fade-up" data-aos-delay="100">
-              <strong>Address:</strong> 123 Auto Lane, Car City, CA 90210
+              <strong>{t('contactSection.addressLabel')}</strong> 123 Auto Lane, Car City, CA 90210
             </li>
             <li data-aos="fade-up" data-aos-delay="200">
-              <strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a>
+              <strong>{t('contactSection.phoneLabel')}</strong> <a href="tel:+1234567890">+1 (234) 567-890</a>
             </li>
             <li data-aos="fade-up" data-aos-delay="300">
-              <strong>Email:</strong>{' '}
+              <strong>{t('contactSection.emailLabel')}</strong>{' '}
               <a href="mailto:info@dealership.com">info@dealership.com</a>
             </li>
             <li data-aos="fade-up" data-aos-delay="400">
-              <strong>Hours:</strong> Mon-Fri: 9 AM - 6 PM, Sat: 10 AM - 4 PM,
-              Sun: Closed
+              <strong>{t('contactSection.hoursLabel')}</strong> {t('contactSection.hoursMonFri')}, {t('contactSection.hoursSat')}, {t('contactSection.hoursSun')}
             </li>
           </ul>
         </div>
         <div className="contact-map">
-          <h3>Find Us</h3>
+          <h3>{t('contactSection.findUsTitle')}</h3>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d-122.419415484681!3d37.774929779759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c5f2b7e55%3A0x9c5a5b5a5b5a5b5a!2s123%20Auto%20Lane%2C%20San%20Francisco%2C%20CA%2090210!5e0!3m2!1sen!2sus!4v1634567890123!5m2!1sen!2sus"
             width="100%"
