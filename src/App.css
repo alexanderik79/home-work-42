@@ -30,7 +30,7 @@ nav {
 }
 
 nav ul {
-  margin-right: 100px;
+  margin-right: 60px;
   list-style: none;
   display: flex;
   gap: 50px;
@@ -49,17 +49,6 @@ nav a.active {
   /* font-weight: bold; */
 }
 
-.language-switcher {
-  margin-left: 20px; /* Отступ от навигации */
-}
-
-.language-switcher select {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  cursor: pointer;
-}
 
 aside {
   width: 200px;
@@ -199,7 +188,7 @@ main {
 
   nav ul {
     margin-right: 0;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -269,7 +258,7 @@ main {
     padding: 15px;
   }
   nav ul {
-    gap: 30px;
+    gap: 10px;
   }
   nav a {
     font-size: 15px;
