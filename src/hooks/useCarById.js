@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchData } from '../api/api'; // Убедитесь, что это правильный путь к вашему файлу api.js
+import { fetchData } from '../api/api'; 
 
 function useCarById(carId) {
   const [car, setCar] = useState(null);
