@@ -1,13 +1,11 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-function useDebugPath() {
+function DebugPath() { 
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-
-
     const params = new URLSearchParams(location.search);
     const redirectPath = params.get('redirect');
 
@@ -15,8 +13,8 @@ function useDebugPath() {
       console.log('Redirecting to:', redirectPath);
       navigate(redirectPath, { replace: true });
     }
-  }, [location, navigate]); 
-  
+  }, [location, navigate]);
+
 }
 
-export default useDebugPath;
+export default DebugPath;

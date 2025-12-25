@@ -11,17 +11,24 @@ const axiosInstance = axios.create({
   },
 });
 
-export const fetchCategories = async () => {
-  const response = await axiosInstance.get(`/categories/all/${DEALER_NAME}`);
+export const fetchData = async (resourceType, id = null) => {
+  let url;
+  switch (resourceType) {
+    case 'categories':
+      url = `/categories/all/${DEALER_NAME}`;
+      break;
+    case 'carsByCategory':
+      if (!id) throw new Error('categoryId is required for "carsByCategory"');
+      url = `/products/category/${id}/${DEALER_NAME}`;
+      break;
+    case 'carById':
+      if (!id) throw new Error('carId is required for "carById"');
+      url = `/products/product/${id}/${DEALER_NAME}`;
+      break;
+    default:
+      throw new Error(`Unknown resource type: ${resourceType}`);
+  }
+
+  const response = await axiosInstance.get(url);
   return response.data;
 };
-
-export const fetchCarsByCategory = async (categoryId) => {
-  const response = await axiosInstance.get(`/products/category/${categoryId}/${DEALER_NAME}`);
-  return response.data;
-};
-
-export async function getCarById(id) {
-    const response = await axiosInstance.get(`/products/product/${id}/${DEALER_NAME}`);
-    return response.data;
-}

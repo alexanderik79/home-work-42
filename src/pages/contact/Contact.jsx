@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import './contact.css';
 import ContactSection from '../../components/ContactSection/ContactSection';
 import { CONTACT_FORM } from '../../constants/contactForm';
+import { useTranslation } from '../../contexts/LocalizationContext'; // Импортируем хук для перевода
 
 function Contact() {
   const [formData, setFormData] = useState(CONTACT_FORM);
   const [submitted, setSubmitted] = useState(false);
+  const { t } = useTranslation(); // Получаем функцию перевода
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,14 +25,18 @@ function Contact() {
   return (
     <div>
       <div className="contact-page">
-        <Link to="/">Back to Home</Link>
-        <h2 data-aos="fade-up" data-aos-delay="100">Contact Us</h2>
+        {/* Используем перевод для кнопки "Назад к главной" */}
+        <Link to="/">{t('contact.backToHome')}</Link>
+        {/* Используем перевод для заголовка */}
+        <h2 data-aos="fade-up" data-aos-delay="100">{t('contact.title')}</h2>
         {submitted ? (
-          <p className="success-message">Thank you! Your message has been sent.</p>
+          // Используем перевод для сообщения об успешной отправке
+          <p className="success-message">{t('contact.successMessage')}</p>
         ) : (
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">
-              <label htmlFor="name" data-aos="fade-up" data-aos-delay="200" >Name:</label>
+              {/* Используем перевод для метки "Имя:" */}
+              <label htmlFor="name" data-aos="fade-up" data-aos-delay="200" >{t('contact.nameLabel')}</label>
               <input
                 data-aos="fade-up" data-aos-delay="150"
                 type="text"
@@ -42,7 +48,8 @@ function Contact() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="email" data-aos="fade-up" data-aos-delay="200">Email:</label>
+              {/* Используем перевод для метки "Email:" */}
+              <label htmlFor="email" data-aos="fade-up" data-aos-delay="200">{t('contact.emailLabel')}</label>
               <input
                 data-aos="fade-up" data-aos-delay="250"
                 type="email"
@@ -54,7 +61,8 @@ function Contact() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="message" data-aos="fade-up" data-aos-delay="300">Message:</label>
+              {/* Используем перевод для метки "Сообщение:" */}
+              <label htmlFor="message" data-aos="fade-up" data-aos-delay="300">{t('contact.messageLabel')}</label>
               <textarea
                 data-aos="fade-up" data-aos-delay="350"
                 id="message"
@@ -64,7 +72,8 @@ function Contact() {
                 required
               />
             </div>
-            <button type="submit" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-offset="0">Send Message</button>
+            {/* Используем перевод для текста кнопки отправки */}
+            <button type="submit" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-offset="0">{t('contact.sendMessageButton')}</button>
           </form>
         )}
       </div>

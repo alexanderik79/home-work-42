@@ -1,6 +1,5 @@
-// src/hooks/useCarById.js
 import { useState, useEffect } from 'react';
-import { getCarById } from '../api/api'; 
+import { fetchData } from '../api/api'; 
 
 function useCarById(carId) {
   const [car, setCar] = useState(null);
@@ -8,7 +7,7 @@ function useCarById(carId) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!carId) { 
+    if (!carId) {
       setCar(null);
       setLoading(false);
       return;
@@ -17,9 +16,9 @@ function useCarById(carId) {
     const fetchCar = async () => {
       try {
         setLoading(true);
-        setError(null); 
-        const data = await getCarById(carId);
-        setCar(data);
+        setError(null);
+        const data = await fetchData('carById', carId);
+        setCar(data); 
       } catch (err) {
         setError(err);
       } finally {
@@ -28,7 +27,7 @@ function useCarById(carId) {
     };
 
     fetchCar();
-  }, [carId]); 
+  }, [carId]);
 
   return { car, loading, error };
 }
